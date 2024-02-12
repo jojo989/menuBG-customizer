@@ -41,6 +41,8 @@
 
 # Ignore build folders
 **/build
+**/out
+**/.vs
 # Ignore platform specific build folders
 build-*/
 

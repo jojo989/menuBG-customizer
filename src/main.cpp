@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Include the Geode headers.
  */
 #include <Geode/Geode.hpp>
@@ -6,12 +6,26 @@
  * Required to modify the MenuLayer class
  */
 #include <Geode/modify/MenuLayer.hpp>
+#include <Geode/modify/CreatorLayer.hpp>
+#include <Geode/modify/LevelInfoLayer.hpp>
+#include <string_view>
 
 /**
  * Brings cocos2d and all Geode namespaces 
  * to the current scope.
  */
 using namespace geode::prelude;
+std::string img{ (Mod::get()->getConfigDir() / "background.jpg").string() };
+auto winSize = CCDirector::sharedDirector()->getWinSize();
+int maam = Mod::get()->getSettingValue<int64_t>("maam");
+
+
+void png() {
+	if (!ghc::filesystem::exists(img)) {
+		img = (Mod::get()->getConfigDir() / "background.png").string();
+	}
+
+}
 
 /**
  * `$modify` lets you extend and modify GD's 
@@ -25,34 +39,25 @@ class $modify(MenuLayer) {
 		if (!MenuLayer::init()) return false;
 		
 		auto bg = this->getChildByID("main-menu-bg");
-		std::string img{};
-		img = (Mod::get()->getConfigDir() / "background.jpg").string();
+		auto spr = CCSprite::create(img.c_str());
 
-		if (!ghc::filesystem::exists(img)) {
-			img = (Mod::get()->getConfigDir() / "background.png").string();
-		}
+		spr->setScaleY(winSize.height / spr->getContentSize().height);
+		spr->setScaleX(winSize.width / spr->getContentSize().width);
+		spr->setPositionX(winSize.width / 2);
+		spr->setPositionY(winSize.height / 2);
+		
 
 		if (ghc::filesystem::exists(img)) {
 
-			auto spr = CCSprite::create(img.c_str());
-
-			auto winSize = CCDirector::sharedDirector()->getWinSize();
-
-			spr->setScaleY(winSize.height / spr->getContentSize().height);
-			spr->setScaleX(winSize.width / spr->getContentSize().width);
-			spr->setPositionX(winSize.width / 2);
-			spr->setPositionY(winSize.height / 2);
-
-
-
 			bg->setVisible(false);
+			spr->setOpacity(maam);
 			this->addChild(spr, -1);
 			
 		}
 
-		bool setting = Mod::get()->getSettingValue<bool>("pene");
+		bool disablelogo = Mod::get()->getSettingValue<bool>("pene");
 		
-		if (setting) {
+		if (disablelogo) {
 			this->removeChildByID("main-title");
 
 		}
@@ -60,4 +65,67 @@ class $modify(MenuLayer) {
 		return true;
 
 	} 
+};
+
+class $modify(CreatorLayer) {
+	bool init() {
+		if (!CreatorLayer::init())
+			return false;
+
+
+		auto bg = this->getChildByID("background");
+		auto spr = CCSprite::create(img.c_str());
+
+		spr->setScaleY(winSize.height / spr->getContentSize().height);
+		spr->setScaleX(winSize.width / spr->getContentSize().width);
+		spr->setPositionX(winSize.width / 2);
+		spr->setPositionY(winSize.height / 2);
+
+
+		if (ghc::filesystem::exists(img)) {
+			//god i wish there was an easier way to do this ����
+			if (Mod::get()->getSettingValue<bool>("creatorlayer")) {  
+				bg->setVisible(false);
+				spr->setOpacity(maam);
+				this->addChild(spr, -1);
+			}
+
+		}
+
+		return true;
+	}
+
+	
+};
+
+//yes another copypaste
+class $modify(LevelInfoLayer) {
+	bool init(GJGameLevel * p0, bool p1) {
+		if (!LevelInfoLayer::init(p0, p1))
+			return false;
+
+
+		auto bg = this->getChildByID("background");
+		auto spr = CCSprite::create(img.c_str());
+
+		spr->setScaleY(winSize.height / spr->getContentSize().height);
+		spr->setScaleX(winSize.width / spr->getContentSize().width);
+		spr->setPositionX(winSize.width / 2);
+		spr->setPositionY(winSize.height / 2);
+
+
+		if (ghc::filesystem::exists(img)) {
+			
+			if (Mod::get()->getSettingValue<bool>("levelinfolayer")) {
+				bg->setVisible(false);
+				spr->setOpacity(maam);
+				this->addChild(spr, -1);
+			}
+
+		}
+
+		return true;
+	}
+
+
 };

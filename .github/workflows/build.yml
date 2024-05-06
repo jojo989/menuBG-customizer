@@ -17,10 +17,6 @@ jobs:
           
         - name: macOS
           os: macos-latest
-          
-        - name: iOS
-          os: macos-latest
-          target: iOS
 
         - name: Android32
           os: ubuntu-latest
@@ -37,7 +33,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the mod
-        uses: RoootTheFox/build-geode-mod@main
+        uses: geode-sdk/build-geode-mod@main
         with:
           # bindings: "RayDeeUx/bindings" # comment this out to swap to "geode-sdk/bindings"
           # bindings-ref: "erysedits" # comment this out to use default branch

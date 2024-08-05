@@ -1,15 +1,19 @@
 {
-	"geode": "3.0.0",
+	"geode": "3.3.1",
 	"gd": {
 		"win": "2.206",
 		"mac": "2.206",
 		"android": "2.206"
 	},
-	"version": "v1.1.0",
+	"version": "v1.1.1",
 	"id": "jojo989.main_menu_bg_customizer",
 	"name": "menuBG customizer",
 	"developer": "jojo989",
-	"description": "",
+	"description": "adds a photo to menus gg",
+	"resources": {
+		"files": [ "resources/*" ]
+
+	},
 	"settings": {
 		"removeGDLogo": {
 			"name": "Disable GD Logo",
@@ -26,6 +30,24 @@
 		"levelInfoLayer": {
 			"name": "Level Info Layer",
 			"description": "Enables your BG in Level Info Layer.",
+			"type": "bool",
+			"default": false
+		},
+		"editLevelLayer": {
+			"name": "Edit Level Layer",
+			"description": "Enables your BG in Edit Level Layer.",
+			"type": "bool",
+			"default": false
+		},
+		"levelBrowserLayer": {
+			"name": "Level Browser Layer",
+			"description": "Enables your BG in Level Browser Layer.",
+			"type": "bool",
+			"default": false
+		},
+		"levelSearchLayer": {
+			"name": "Level Search layer",
+			"description": "Enables your BG in Level Search Layer.",
 			"type": "bool",
 			"default": false
 		},
@@ -47,11 +69,11 @@
 			}
 		}
 	},
-	"dependencies": [
-		{
-			"id": "geode.node-ids",
-			"version": ">=1.9.1",
-			"importance": "required"
-		}
-	]
-}
+		"dependencies": [
+			{
+				"id": "geode.node-ids",
+				"version": ">=1.13.1",
+				"importance": "required"
+			}
+		]
+	}

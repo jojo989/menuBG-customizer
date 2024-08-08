@@ -8,6 +8,7 @@
 using namespace geode::prelude;
 
 std::filesystem::path getImage() {
+	if (!std::filesystem::exists(Mod::get()->getSaveDir())) { std::filesystem::create_directory(Mod::get()->getSaveDir()); }
 	auto img = (Mod::get()->getSaveDir() / "background.png");
 	if (!std::filesystem::exists(img)) {
 		img = (Mod::get()->getSaveDir() / "background.jpg");
@@ -37,6 +38,7 @@ class $modify(MenuLayer) {
 	bool init() {
 		if (!MenuLayer::init()) { return false; }
 		
+
 		applyWallpaper(this, "main-menu-bg");
 		
 		if (Mod::get()->getSettingValue<bool>("removeGDLogo")) { removeChildByID("main-title"); }

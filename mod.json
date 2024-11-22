@@ -1,9 +1,9 @@
 {
-	"geode": "3.3.1",
+	"geode": "4.0.1",
 	"gd": {
-		"win": "2.206",
-		"mac": "2.206",
-		"android": "2.206"
+		"win": "2.2074",
+		"mac": "2.2074",
+		"android": "2.2074"
 	},
 	"version": "v1.2.1",
 	"id": "jojo989.main_menu_bg_customizer",
@@ -72,7 +72,7 @@
 		"dependencies": [
 			{
 				"id": "geode.node-ids",
-				"version": ">=1.13.1",
+				"version": ">=1.17.0",
 				"importance": "required"
 			}
 		]

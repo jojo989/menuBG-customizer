@@ -1,12 +1,12 @@
 {
-	"geode": "4.3.1",
+	"geode": "5.2.0",
 	"gd": {
-		"win": "2.2074",
-		"mac": "2.2074",
-		"android": "2.2074",
-		"ios": "2.2074"
+		"win": "2.2081",
+		"mac": "2.2081",
+		"android": "2.2081",
+		"ios": "2.2081"
 	},
-	"version": "v1.2.1",
+	"version": "v1.3",
 	"id": "jojo989.main_menu_bg_customizer",
 	"name": "menuBG customizer",
 	"developer": "jojo989",
@@ -68,7 +68,27 @@
 				"arrow-step": 1,
 				"big-arrow-step": 5
 			}
-		}
+		},
+
+		"background-file": {
+    "type": "file",
+    "name": "Background image",
+    "default": {
+        "win": "Please pick an image",
+        "mac": "Please pick an image",
+        "android": "Please pick an image"
+    },
+    "control": {
+        "dialog": "open",
+        "filters": [
+            {
+                "files": ["*.png", "*.jpg", "*.jpeg"],
+                "description": "The background image file"
+            }
+        ]
+    }
+}
+
 	},
 		"dependencies": [
 			{

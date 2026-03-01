@@ -17,9 +17,9 @@
 	},
 	"dependencies":
 			{
-				"id": "geode.node-ids",
-				"version": ">=1.17.0",
-				"importance": "required"
+				"geode.node-ids":{
+					"version": ">=1.17.0"
+				}
 			},
 	"settings": {
 		"removeGDLogo": {

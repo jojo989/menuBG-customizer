@@ -15,6 +15,12 @@
 		"files": [ "resources/*" ]
 
 	},
+	"dependencies":
+			{
+				"id": "geode.node-ids",
+				"version": ">=1.17.0",
+				"importance": "required"
+			},
 	"settings": {
 		"removeGDLogo": {
 			"name": "Disable GD Logo",
@@ -90,11 +96,5 @@
 }
 
 	},
-		"dependencies": [
-			{
-				"id": "geode.node-ids",
-				"version": ">=1.17.0",
-				"importance": "required"
-			}
-		]
+		
 	}

@@ -1,5 +1,5 @@
 {
-	"geode": "5.3.0",
+	"geode": "5.7.3",
 	"gd": {
 		"win": "2.2081",
 		"mac": "2.2081",
@@ -19,7 +19,11 @@
 			{
 				"geode.node-ids":{
 					"version": ">=1.17.0"
-				}
+				},
+				"prevter.imageplus": {
+					"version": ">=v1.1.0",
+					"required": true
+        }
 			},
 	"settings": {
 		"removeGDLogo": {
@@ -76,7 +80,7 @@
 			}
 		},
 
-		"background-file": {
+	"background-file": {
     "type": "file",
     "name": "Background image",
     "default": {
@@ -89,7 +93,7 @@
         "dialog": "open",
         "filters": [
             {
-                "files": ["*.png", "*.jpg", "*.jpeg"],
+                "files": ["*.png", "*.jpg", "*.jpeg", "*.gif", ".webp", ".jxl"],
                 "description": "The background image file"
             }
         ]

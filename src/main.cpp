@@ -4,6 +4,7 @@
 #include <Geode/modify/EditLevelLayer.hpp>
 #include <Geode/modify/LevelBrowserLayer.hpp>
 #include <Geode/modify/LevelSearchLayer.hpp>
+#include <prevter.imageplus/include/api.hpp>
 
 using namespace geode::prelude;
 
